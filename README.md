@@ -4,8 +4,8 @@ List of SPARQL queries example for [RIKEN BioResource MetaDatabase](https://know
 
 SPARQL endpoint: https://knowledge.brc.riken.jp/sparql
 
-## List
-### queryExample01.rq
+## Query examples
+### [queryExample01.rq (https://github.com/kushidat/sib_riken_collabotation/blob/main/queriyExample01.rq)]
 Get RIKEN BRC mice having Mammalian Phenotype Ontology (MP) terms.
 
 
