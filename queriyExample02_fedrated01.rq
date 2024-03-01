@@ -1,0 +1,36 @@
+# [Using federated query01] Get the RIKEN BRC mouse and its genetically modified or mutated mouse gene that is an orthologue of the human gene (ENSG00000109084).
+PREFIX brcanimal:<http://metadb.riken.jp/db/rikenbrc_mouse/>
+PREFIX brso: <http://purl.jp/bio/10/brso/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX lscr: <http://purl.org/lscr#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX taxon: <http://purl.uniprot.org/taxonomy/>
+PREFIX orth: <http://purl.org/net/orth#>
+SELECT DISTINCT ?mouse ?ensembl1 
+WHERE {
+  SERVICE <https://sparql.omabrowser.org/lode/sparql> {
+    ?cluster a orth:OrthologsCluster .
+    ?cluster orth:hasHomologousMember ?node1 .
+    ?cluster orth:hasHomologousMember ?node2 .
+        FILTER (?node1 != ?node2)
+    ?node1 orth:hasHomologousMember* ?protein1 .
+    ?node2 orth:hasHomologousMember* ?protein2 .
+    ?protein1 sio:SIO_010079 ?oma_gene1 . 
+    ?oma_gene1 lscr:xrefEnsemblGene ?ensembl1 .
+    ?oma_gene1 lscr:xrefNCBIGene ?ncbi1 .
+    ?protein2 sio:SIO_010079 ?oma_gene2 .
+    ?protein2 orth:organism ?oma_organism2 .
+    ?oma_organism2 obo:RO_0002162 taxon:9606 .
+    ?oma_gene2 lscr:xrefNCBIGene ?ncbi2 .
+    ?oma_gene2 lscr:xrefEnsemblGene ?ensembl2 .
+        VALUES ?ensembl2 {<http://rdf.ebi.ac.uk/resource/ensembl/ENSG00000109084>}
+    }
+    {
+        SELECT ?mouse ?ensembl1 WHERE {
+            ?mouse rdfs:subClassOf brcanimal:Strain.
+            ?mouse brso:genomic_feature/brso:has_genomic_segment/rdfs:seeAlso ?mgi1 .
+            ?mgi1 rdfs:seeAlso ?ensembl1 . 
+        } 
+    }
+} 
