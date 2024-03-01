@@ -1,4 +1,4 @@
-# Get the RIKEN BRC mouse and its genetically modified or mutated mouse gene, which is an orthologue of the human gene (ENSG00000109084).
+# Get the RIKEN BRC mouse and its genetically modified or mutated mouse gene that is an orthologue of the human gene (ENSG00000109084).
 PREFIX brcanimal:<http://metadb.riken.jp/db/rikenbrc_mouse/>
 PREFIX brso: <http://purl.jp/bio/10/brso/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
