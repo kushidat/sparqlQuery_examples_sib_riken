@@ -10,4 +10,4 @@ Get RIKEN BRC mice having Mammalian Phenotype Ontology (MP) terms.
 
 
 ### 02. [queryExample02.rq](https://github.com/kushidat/sib_riken_collabotation/blob/main/queriyExample02.rq)
-Get the RIKEN BRC mouse and its genetically modified or mutated gene, which is an orthologue of the human gene (ENSG00000109084).
+Get the RIKEN BRC mouse and its genetically modified or mutated mouse gene, which is an orthologue of the human gene (ENSG00000109084).
