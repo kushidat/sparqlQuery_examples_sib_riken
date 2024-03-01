@@ -7,3 +7,6 @@ SPARQL endpoint: https://knowledge.brc.riken.jp/sparql
 ## List
 ### queryExample01.rq
 Get RIKEN BRC mice having Mammalian Phenotype Ontology (MP) terms.
+
+
+### queryExample02.rq
