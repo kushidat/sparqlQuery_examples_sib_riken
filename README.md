@@ -30,3 +30,6 @@ Get UniProt accession numbers classified to molecular function of Gene Ontology.
 
 ### 06. [queryExample06.rq](https://github.com/kushidat/sib_riken_collabotation/blob/main/queriyExample06.rq)
 Get human DNA materials relevant to the biological process of cuticle development (go:0042335).
+
+### 07. [queryExample07.rq](https://github.com/kushidat/sib_riken_collabotation/blob/main/queriyExample07.rq)
+Get microbial strains from the Japan Collection of Microorganisms (JCM) whose optimum growth temperature is 75 degrees Celsius or higher.
