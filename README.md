@@ -24,3 +24,9 @@ Get ChEBI chemicals with the role of inflammatory agent (chebi:67079).
 
 ### 04. [queryExample04.rq](https://github.com/kushidat/sib_riken_collabotation/blob/main/queriyExample04.rq)
 Get RIKEN BRC plant DNA resources that catalyse chemicals with the role of inflammatory agent (chebi:67079), their gene IDs and UniProt accession numbers.
+
+### 05. [queryExample05.rq](https://github.com/kushidat/sib_riken_collabotation/blob/main/queriyExample05.rq)
+Get UniProt accession numbers classified to molecular function of Gene Ontology.
+
+### 06. [queryExample06.rq](https://github.com/kushidat/sib_riken_collabotation/blob/main/queriyExample06.rq)
+Get human DNA materials relevant to the biological process of cuticle development (go:0042335).
