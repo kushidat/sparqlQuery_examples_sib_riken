@@ -1,0 +1,23 @@
+# 07 Get microbial strains from the Japan Collection of Microorganisms (JCM) whose optimum growth temperature is 75 degrees Celsius or higher.
+PREFIX mccv: <http://purl.jp/bio/10/mccv#> # Microbial Culture Collection Vocabulary
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mpo: <http://purl.jp/bio/10/mpo#> # Microbial Phenotype Ontology
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX brso: <http://purl.jp/bio/10/brso/>
+SELECT distinct ?strain ?taxonomy ?speciesName ?degreeCelsius
+#FROM <http://metadb.riken.jp/db/xsearch_jcm_brso>
+where {
+?strain mccv:MCCV_000024/a mccv:MCCV_000001 ; # Culture
+	brso:organism/obo:RO_0002162 ?taxonomy ;
+	mccv:MCCV_000012 ?speciesName ;
+	mccv:MCCV_000073 ?cultuteCondition . # culture condition
+  		FILTER REGEX(STR(?taxonomy), "http://purl.obolibrary.org/obo/NCBITaxon") 
+?cultuteCondition mccv:MCCV_000014 ?optimumGrowthTemperature .
+?optimumGrowthTemperature a mpo:MPO_00102 ; # Optimal growth temperature
+	rdf:value ?degreeCelsius ;
+	sio:SIO_000221 obo:UO_0000027. # has unit, degree Celsius
+		FILTER(?degreeCelsius >= 75)
+} 
+
