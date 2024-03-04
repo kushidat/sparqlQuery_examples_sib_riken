@@ -1,0 +1,15 @@
+# 03 Get ChEBI chemicals with the role of inflammatory agent (chebi:67079).
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX chebi: <http://purl.obolibrary.org/obo/CHEBI_>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+SELECT DISTINCT ?chebi ?label_chebi
+WHERE {
+#graph <http://metadb.riken.jp/ontology/CHEBI>
+	?chebi rdfs:subClassOf ?bl_1; rdfs:label ?label_chebi .
+	?bl_1 owl:someValuesFrom ?role ; rdf:type owl:Restriction ;
+	owl:onProperty obo:RO_0000087 . # has role
+	?role rdfs:label ?label_role.
+		VALUES(?role) {(chebi:67079)} #anti-inflammatory agent
+}

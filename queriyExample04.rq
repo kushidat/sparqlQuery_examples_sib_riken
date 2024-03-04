@@ -1,0 +1,38 @@
+# 04 Get RIKEN BRC plant DNA resources that catalyse chemicals with the role of inflammatory agent (chebi:67079), their gene IDs and UniProt accession numbers.
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rh: <http://rdf.rhea-db.org/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX chebi: <http://purl.obolibrary.org/obo/CHEBI_>
+PREFIX brso: <http://purl.jp/bio/10/brso/>
+PREFIX up: <http://purl.uniprot.org/core/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+SELECT DISTINCT ?plant ?gene ?uniprot
+WHERE {
+#graph <http://metadb.riken.jp/db/xsearch_plant_brso> 		
+	?plant brso:genomic_feature/brso:has_genomic_segment/rdfs:seeAlso ?gene.
+	?plant rdfs:subClassOf <http://metadb.riken.jp/db/rikenbrc_plant/PlantResource> .
+		FILTER REGEX(STR(?gene), "http://purl.uniprot.org/geneid/") 
+
+#graph <http://metadb.riken.jp/db/uniprot_ncbigene>
+	?uniprot rdfs:seeAlso ?gene.
+		FILTER REGEX(STR(?uniprot), "http://purl.uniprot.org/uniprot/") 	      
+          
+#graph <http://metadb.riken.jp/db/uniprot_enzyme>
+	?uniprot <http://purl.uniprot.org/core/enzyme> ?enzyme.
+		FILTER REGEX(STR(?enzyme), "http://purl.uniprot.org/enzyme/")
+
+#graph <http://metadb.riken.jp/db/rhea> 
+	?rhea rh:ec ?enzyme.
+	?rhea rh:side ?side .
+	?side rh:contains ?participant .
+	?participant rh:compound ?compound .
+	?compound rh:chebi ?chebi .      
+
+#graph <http://metadb.riken.jp/ontology/CHEBI>
+	?chebi rdfs:subClassOf ?bl_1; rdfs:label ?label_chebi .
+	?bl_1 owl:someValuesFrom ?role ; rdf:type owl:Restriction ;
+	owl:onProperty obo:RO_0000087 . # has role
+	?role rdfs:label ?label_role.
+		VALUES(?role) {(chebi:67079)} #anti-inflammatory agent
+}
