@@ -1,0 +1,30 @@
+# 06 Get human DNA materials relevant to the biological process of cuticle development (go:0042335).
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX brso: <http://purl.jp/bio/10/brso/>
+PREFIX uniprot: <http://purl.uniprot.org/core/>
+PREFIX go: <http://purl.obolibrary.org/obo/GO_>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
+SELECT DISTINCT ?dna ?gene ?uniprot
+WHERE {
+#graph <http://metadb.riken.jp/db/xsearch_dnabank_brso> 		
+	?dna brso:genomic_feature/brso:has_genomic_segment/rdfs:seeAlso ?gene.
+	?dna brso:genomic_feature/brso:has_genomic_segment/obo:RO_0002162 obo:NCBITaxon_9606.
+		FILTER REGEX(STR(?gene), "http://purl.uniprot.org/geneid/")  
+
+#graph <http://metadb.riken.jp/db/uniprot_ncbigene> 
+	?uniprot rdfs:seeAlso ?gene.
+		FILTER REGEX(STR(?uniprot), "http://purl.uniprot.org/uniprot/") 
+
+#graph <http://metadb.riken.jp/db/uniprot_go> 
+	?uniprot uniprot:classifiedWith ?go.
+		VALUES(?go){(go:0042335)} # cuticle development
+        
+#graph <http://metadb.riken.jp/ontology/GO> 
+#	?go oboInOwl:hasOBONamespace "molecular_function".
+#	?go oboInOwl:hasOBONamespace "biological_process".
+#	?go oboInOwl:hasOBONamespace "cellular_component".
+
+}
