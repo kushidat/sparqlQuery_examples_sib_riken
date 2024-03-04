@@ -18,3 +18,9 @@ Get the RIKEN BRC mouse and its genetically modified or mutated mouse gene that 
 
   - ### 02-02. [queriyExample02_fedrated02.rq](https://github.com/kushidat/sib_riken_collabotation/blob/main/queriyExample02_fedrated02.rq)
   - [Using federated query02] Get the RIKEN BRC mouse and its genetically modified or mutated mouse gene that is an orthologue of the human gene (ENSG00000109084).
+
+### 03. [queryExample03.rq](https://github.com/kushidat/sib_riken_collabotation/blob/main/queriyExample03.rq)
+Get ChEBI chemicals with the role of inflammatory agent (chebi:67079).
+
+### 04. [queryExample04.rq](https://github.com/kushidat/sib_riken_collabotation/blob/main/queriyExample04.rq)
+Get RIKEN BRC plant DNA resources that catalyse chemicals with the role of inflammatory agent (chebi:67079), their gene IDs and UniProt accession numbers.
