@@ -33,3 +33,7 @@ Get human DNA materials relevant to the biological process of cuticle developmen
 
 ### 07. [queryExample07.rq](https://github.com/kushidat/sib_riken_collabotation/blob/main/queriyExample07.rq)
 Get microbial strains from the Japan Collection of Microorganisms (JCM) whose optimum growth temperature is 75 degrees Celsius or higher.
+
+### 08. [queryExample08.rq](https://github.com/kushidat/sib_riken_collabotation/blob/main/queriyExample08.rq)
+Get Alzheimer disease type 1(AD1) related genes whose expression levels are 99.7 or higher.
+
