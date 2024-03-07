@@ -13,7 +13,7 @@ Get RIKEN BRC mice having Mammalian Phenotype Ontology (MP) terms.
 Get the RIKEN BRC mouse and its genetically modified or mutated mouse gene that is an orthologue of the human gene (ENSG00000109084).
 
   - ### 02-01. [queriyExample02_fedrated01.rq](https://github.com/kushidat/sib_riken_collabotation/blob/main/queriyExample02_fedrated01.rq)
-  - [[Using federated query01] Get the RIKEN BRC mouse and its genetically modified or mutated mouse gene that is an orthologue of the human gene (ENSG00000109084).
+  - [Using federated query01] Get the RIKEN BRC mouse and its genetically modified or mutated mouse gene that is an orthologue of the human gene (ENSG00000109084).
 
 
   - ### 02-02. [queriyExample02_fedrated02.rq](https://github.com/kushidat/sib_riken_collabotation/blob/main/queriyExample02_fedrated02.rq)
@@ -37,3 +37,5 @@ Get microbial strains from the Japan Collection of Microorganisms (JCM) whose op
 ### 08. [queryExample08.rq](https://github.com/kushidat/sib_riken_collabotation/blob/main/queriyExample08.rq)
 Get Alzheimer disease type 1(AD1) related genes whose expression levels are 99.7 or higher.
 
+### 09. [queryExample09.rq](https://github.com/kushidat/sib_riken_collabotation/blob/main/queriyExample09.rq)
+Get patient-derived RIKEN BRC iPS cells (e.g., Wilson disease, DOID:893)
