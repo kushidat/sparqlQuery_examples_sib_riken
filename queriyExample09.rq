@@ -5,7 +5,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 SELECT DISTINCT ?homepage_cell ?disease
 WHERE {
-graph <http://metadb.riken.jp/db/xsearch_cell_brso> {
+#graph <http://metadb.riken.jp/db/xsearch_cell_brso> {
 	?cell brso:donor/obo:RO_0000091 ?bl_disease.
   	?cell foaf:homepage ?homepage_cell.
   		FILTER CONTAINS(STR(?homepage_cell), "http://cellbank.brc.riken.jp/cell_bank/CellInfo/?cellNo=HPS" )
@@ -14,5 +14,5 @@ graph <http://metadb.riken.jp/db/xsearch_cell_brso> {
 	?bl_disease rdfs:seeAlso ?disease.
 		FILTER CONTAINS(STR(?disease), "http://purl.obolibrary.org/obo/DOID_")
 #		VALUES (?disease){(<http://purl.obolibrary.org/obo/DOID_893>)}
-	}
+#	}
 }
